@@ -53,7 +53,7 @@ php artisan migrate --path=database/migrations
 8. Launch the seeder.
 
 ```bash
-php artisan db:seed --class=Database\\Seeders\\Database
+php artisan db:seed --class=Database\Seeders\Database
 ```
 
 9. Fill Timezones GeoJSON.
@@ -81,78 +81,6 @@ php artisan user:create --email=user@domain.com --name=Admin --password=StrongPa
 #### Upgrade
 
 Updating the platform can be done in a simple way with the `composer deploy` command executed by the user who manages that project (usually `www-data`).
-
-### Docker Installation
-
-1. Clone the repository.
-
-```bash
-git clone https://github.com/eusonlito/GPS-Tracker.git
-```
-
-2. [OPTIONAL] Copy file `docker/.env.example` to `.env` and configure your own settings
-
-```bash
-cp docker/.env.example .env
-```
-
-3. [OPTIONAL] Copy file `docker/docker-compose.yml.example` to `docker/docker-compose.yml` and configure your own settings
-
-```bash
-cp docker/docker-compose.yml.example docker/docker-compose.yml
-```
-
-4. Build docker images (will ask for the sudo password)
-
-```bash
-./docker/build.sh
-```
-
-5. Start containers (will ask for the sudo password)
-
-```bash
-./docker/run.sh
-```
-
-6. Create the admin user (will ask for the sudo password)
-
-```bash
-./docker/user.sh
-```
-
-7. Launch the Timezone GeoJSON fill (will ask for the sudo password)
-
-```bash
-./docker/timezone-geojson.sh
-```
-
-8. Open your web browser and goto http://localhost:8080
-
-9. Remember to add a web server (apache2, nginx, etc...) as a proxy to add features as SSL.
-
-10. If you are going to add or change the default ports for GPS Devices (`8091`) you must edit the `gpstracker-app` properties in `docker-compose.yml` to adapt them to your own configuration.
-
-#### Docker Upgrade
-
-1. Update the project source
-
-```bash
-git pull
-```
-
-2. Build docker images (will ask for the sudo password)
-
-```bash
-./docker/build.sh
-```
-
-3. Start containers (will ask for the sudo password)
-
-```bash
-./docker/run.sh
-```
-
-4. Open your web browser and goto http://localhost:8080
 
 ### Server connection
 
